@@ -1,5 +1,5 @@
 {
-    "buildCommand": "cd client && npm install",
+    "buildCommand": "cd client && npm run build",
     "outputDirectory": "client",
     "framework": null,
     "rewrites": [
@@ -10,4 +10,4 @@
       {"source": "/(.*)", "destination": "/"}
     ]
   }
-   
+  

@@ -48,7 +48,9 @@ async function uploadToS3(path, originalFilename, mimetype) {
 
 
 }
-
+app.get('/', (req,res) => {
+  res.json('hello')
+})
 app.post('/register', async (req,res) => {
      mongoose.connect(process.env.MONGODB_URI);
     const {username,email, password, firstName, lastName} = req.body;

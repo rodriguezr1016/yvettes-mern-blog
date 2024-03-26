@@ -78,7 +78,14 @@ app.post('/login', async (req,res) => {
     // logged in
     jwt.sign({username,id:userDoc._id, firstName: userDoc.firstName, lastName: userDoc.lastName}, secret, {}, (err,token) => {
       if (err) throw err;
-      res.cookie('token', token).json({
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'none',
+        domain: process.env.NODE_ENV === 'production' ? 'https://yvettes-mern-blog.vercel.app/' : undefined, // Specify the domain for the cookie
+        path: '/',
+        expires: new Date(Date.now() + 86400000),
+      }).json({
         id:userDoc._id,
         username,
         token,

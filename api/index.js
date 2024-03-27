@@ -19,7 +19,7 @@ const salt = bcrypt.genSaltSync(10);
 const secret = 'asdfe45we45w345wegw345werjktjwertkj';
 const bucket = 'yvettes-blog-app'
 
-app.use(cors({credentials:true,origin:true}));
+app.use(cors({credentials:true,origin:'http://localhost:3001'}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
@@ -77,6 +77,7 @@ app.post('/login', async (req,res) => {
   if (passOk) {
     // logged in
     jwt.sign({username,id:userDoc._id, firstName: userDoc.firstName, lastName: userDoc.lastName}, secret, {}, (err,token) => {
+    
       if (err) throw err;
       res.cookie('token', token, {
         httpOnly: true,
@@ -91,6 +92,7 @@ app.post('/login', async (req,res) => {
         token,
       });
     });
+    
   } else {
     res.status(400).json('wrong credentials');
   }

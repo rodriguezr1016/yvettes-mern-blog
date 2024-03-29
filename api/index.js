@@ -18,7 +18,7 @@ const salt = bcrypt.genSaltSync(10);
 const secret = 'asdfe45we45w345wegw345werjktjwertkj';
 const bucket = 'yvettes-blog-app'
 
-app.use(cors({credentials:true,origin:true}));
+app.use(cors({credentials:true,origin:'https://yvettes-mern-blog-lfrz.vercel.app'}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));

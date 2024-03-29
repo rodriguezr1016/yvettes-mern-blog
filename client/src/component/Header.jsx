@@ -7,7 +7,7 @@ function Header() {
     const {setUserInfo, userInfo} = useContext(UserContext);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch('http://localhost:4000/profile', {
+        fetch('https://yvettes-mern-blog-plum.vercel.app/profile', {
             credentials: 'include',
         }).then(response => {
             response.json().then(userInfo => {

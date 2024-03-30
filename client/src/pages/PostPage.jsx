@@ -14,7 +14,7 @@ export default function PostPage() {
 
     const deletePost = async (id) => {
   try {
-    const response = await fetch(`http://localhost:4000/post/${postInfo._id}`, {
+    const response = await fetch(`https://yvettes-mern-blog-plum.vercel.app/post/${postInfo._id}`, {
       method: 'DELETE',
     });
     if(response.ok) {
@@ -34,7 +34,7 @@ export default function PostPage() {
     };
     
     useEffect(() => {
-        fetch(`http://localhost:4000/post/${id}`)
+        fetch(`https://yvettes-mern-blog-plum.vercel.app/post/${id}`)
         .then(response => {
             response.json().then(postInfo => {
                 setPostInfo(postInfo);

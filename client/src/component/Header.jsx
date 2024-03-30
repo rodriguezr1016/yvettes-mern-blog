@@ -18,7 +18,7 @@ function Header() {
     }, []);
 
     function logout() {
-        fetch('http://localhost:4000/logout', {
+        fetch('https://yvettes-mern-blog-plum.vercel.app/logout', {
             credentials: 'include',
             method: 'POST',
         });

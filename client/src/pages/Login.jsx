@@ -6,7 +6,6 @@ export default function Login (){
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
     const {setUserInfo} = useContext(UserContext);
-    window.location.reload()
     const navigate = useNavigate('/');
     
     async function login(ev) {
@@ -21,8 +20,8 @@ export default function Login (){
             response.json().then(userInfo => {
                 setUserInfo(userInfo);
                 setRedirect(true)
+                window.location.reload();
                 navigate('/')
-                history.push('/');
                 
             });
         } else {

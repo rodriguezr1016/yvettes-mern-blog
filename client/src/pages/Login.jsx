@@ -1,13 +1,14 @@
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
-
+import { useHistory } from 'react-router-dom';
 export default function Login (){
     const [username,setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
     const {setUserInfo} = useContext(UserContext);
     const navigate = useNavigate();
+    const history = useHistory();
     
     async function login(ev) {
         ev.preventDefault();
@@ -22,7 +23,8 @@ export default function Login (){
                 setUserInfo(userInfo);
                 setRedirect(true)
                 navigate('/')
-                location.reload()
+                history.push('/');
+                
             });
         } else {
             alert('Wrong Credentials')

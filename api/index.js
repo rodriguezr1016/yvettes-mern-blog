@@ -99,7 +99,11 @@ app.get('/profile', (req,res) => {
 });
 
 app.post('/logout', (req,res) => {
-  res.cookie('token', '').json('ok');
+  res.cookie('token', '', {
+    httpOnly: true,
+    sameSite: 'none',
+    secure: true,
+  }).json('ok');
 });
 
 app.post('/post', uploadMiddleware.single('file'), async (req,res) => {

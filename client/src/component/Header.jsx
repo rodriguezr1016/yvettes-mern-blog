@@ -23,8 +23,8 @@ function Header() {
             method: 'POST',
         });
         setUserInfo(null);
-        navigate('/')
         window.location.reload()
+        navigate('/')
     }
 
     const username = userInfo?.username;

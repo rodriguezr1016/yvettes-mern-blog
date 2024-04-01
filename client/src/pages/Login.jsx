@@ -22,6 +22,7 @@ export default function Login (){
                 setUserInfo(userInfo);
                 setRedirect(true)
                 navigate('/')
+                location.reload()
             });
         } else {
             alert('Wrong Credentials')

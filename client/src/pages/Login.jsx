@@ -20,8 +20,8 @@ export default function Login (){
             response.json().then(userInfo => {
                 setUserInfo(userInfo);
                 setRedirect(true)
-                window.location.reload();
                 navigate('/')
+                window.location.reload();
                 
             });
         } else {

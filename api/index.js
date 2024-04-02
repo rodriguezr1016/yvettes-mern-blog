@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
 const uploadMiddleware = multer({
   storage: storage,
   limits: {
-    fileSize: 1024 * 1024 * 5
+    fileSize: 1024 * 1024 * 100
   }
 });
 require('dotenv').config();

@@ -11,7 +11,20 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const fs = require('fs');
 const multer = require('multer');
-const uploadMiddleware = multer({ dest: '/tmp' });
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, '/tmp');
+  },
+  filename: function(req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+const uploadMiddleware = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1024 * 1024 * 5
+  }
+});
 require('dotenv').config();
 const {S3Client, PutObjectCommand} = require('@aws-sdk/client-s3')
 const salt = bcrypt.genSaltSync(10);

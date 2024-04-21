@@ -9,11 +9,9 @@ import { UserContextProvider } from './UserContext';
 import CreatePost from './pages/CreatePost';
 import PostPage from './pages/PostPage';
 import EditPost from './pages/EditPost';
-import {Analytics} from "@vercel/analytics"
 function App() {
   return (
     <UserContextProvider>
-      <Analytics />
       <Routes>
       <Route path='/' element={<Layout/>}>
         <Route index element={
